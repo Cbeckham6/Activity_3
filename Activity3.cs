@@ -8,91 +8,44 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Activity_3
+namespace Activity_1_Final
 {
-    public partial class YTD : Form
+    public partial class Form1 : Form
     {
-        public YTD()
+        public Form1()
         {
             InitializeComponent();
         }
 
-        private void calculateButton_Click(object sender, EventArgs e)
+        private void myButton_Click(object sender, EventArgs e)
         {
-            // Hold value to the checks TextBox
-            double Check1;
-            double Check2;
-            double Check3;
-            double projected;
-
-            // Get the 3 checks input
-            Check1 = double.Parse(check1TextBox.Text);
-            Check2 = double.Parse(check2TextBox.Text);
-            Check3 = double.Parse(check3TextBox.Text);
-
-            try
-            {
-                if (weeklyRadioButton.Checked)
-                {
-                    // Calculation per weekly
-                    projected = (Check1 + Check2 + Check3) / 3;
-                    projected = (projected * 56);
-                    projected = (projected / 12);
-
-                    // display the projected 
-                    outputLabel.Text = projected.ToString("n1");
-                }
-                else if (biweeklyRadioButton.Checked)
-                {
-                    // Calculation per Biweekly
-                    projected = (Check1 + Check2 + Check3) / 3;
-                    projected = (projected * 26);
-                    projected = (projected / 12);
-
-                    // display the projected 
-                    outputLabel.Text = projected.ToString("n1");
-                }
-                else if (semiRadioButton.Checked)
-                {
-                    // Calculation per semi monthly
-                    projected = (Check1 + Check2 + Check3) / 3;
-                    projected = (projected * 24);
-                    projected = (projected/ 12);
-
-                    // display the projected 
-                    outputLabel.Text = projected.ToString("n1");
-                }
-                else if (monthlyRadioButton.Checked)
-                {
-                    // Calculation per monthly
-                    projected = (Check1 + Check2 + Check3) / 3;
-                    projected = (projected * 12);
-                    projected = (projected / 12);
-                    // display the projected
-                    outputLabel.Text = projected.ToString("n1");
-                }
-            }
-            catch (Exception ex)
-            {
-                // display an error message
-                MessageBox.Show(ex.Message);
-            }
+            // Display a message about me
+            MessageBox.Show("My name is Cori, I'm 23 years old." +
+                " I love being outside with nature." +
+                " And in my free time I like to draw and design");
         }
 
-        private void clearButton_Click(object sender, EventArgs e)
+        private void familyButton_Click(object sender, EventArgs e)
         {
-            // Clearing textboxes 
-            check1TextBox.Text = "";
-            check2TextBox.Text = "";
-            check3TextBox.Text = "";
-            outputLabel.Text = "";
+            // Display a message about family
+            MessageBox.Show("Meet my Dad Corey, Mom Dannielle, and Little Sister Gemma" +
+                " We love to travel" +
+                " As a family we have been to over 10 states thus far.");
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        private void myPictureBox_Click(object sender, EventArgs e)
         {
-            // Exit the form 
-            this.Close();
+            //Display the picture of my family
+            familyPictureBox.Visible = true;
+            myPictureBox.Visible = false;
+        }
+
+        private void familyPictureBox_Click(object sender, EventArgs e)
+        {
+            //Display the picture of me
+            myPictureBox.Visible = true;
+            familyPictureBox.Visible=false;
+
         }
     }
 }
-
